@@ -1,0 +1,181 @@
+﻿<!-- HTML Doc Version 0.1 y.s. -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<link rel="stylesheet" href="css/default.css" type="text/css"/>
+	<script type="text/JavaScript" src="js/jquery.js"></script>
+	<script type="text/JavaScript" src="js/frame.js"></script>
+	<script type="text/JavaScript" src="js/main.js"></script>
+	<title>Arrow</title>
+</head>
+<body>
+	<div id="header">
+		<a href="#">Arrow</a>
+	</div>
+	<div id="center">
+		<div class="section">
+			<h1 id="parameter">Arrow</h1>
+			<p>Introduce each attribute of an arrow object.</p>
+		</div>
+		<div id="name" class="section1">
+			<h2>Name</h2>
+			<div class="section1">
+				Name of an arrow. Case sensitive.
+				Cannot contain &quot;white space&quot; in the Name.<br />
+				Name format:<span class="code">[name][.index][.type]</span><br />
+				Both the [name] and [type] can be empty.  There are some reserved [type]: 
+				<span class="code">"f", "u", "t", "c", "s", "i", "C#"</span>(not case sensitive). Their meaning,<br />
+				<ul class="dashed_border">
+					<li><a href="#f_type">"f"</a> :local file system path or short name</li>
+					<li>"u" :url, arguments of url will be escaped before launch</li>
+					<li>"t" :text, same as url. But it will set selected text as argument and launch. Useful when searching sth.</li>
+					<li>"c" :copy the text in arrow's Cmd and Arg then paste it.</li>
+					<li>"s" :simulate stroke of hardware inputs, both mouse and keyboard. <a href="#stroke_statement_rule">Goto statement syntax</a>.</li>
+					<li>"i" :internal functions of Archer</li>
+					<li>"C#":internal C# script, there are some special syntax for <a href="#note_csharp_args">C# Args</a>.</li>
+				</ul>
+				Such as <span class="code">"abc","1.2.3","!@#","index.html","python.py","fso.vbs".</span><br />
+				If left the [type] empty, Archer will recognize it intelligently.<br />
+				Different arrows can have one same [name].
+				Archer only treat the content before first dot as [name]. 
+				<div class="tip"><ul>
+					<li>
+					If the name box is focused, all the same [name]ed arrows will be launched at one time, 
+					which is useful when a project need to open a set of websites, folders and files. Archer doesn't care about 
+					the strings after the [name], so you can define a sequence like &quot;queue.1.f&quot; and &quot;queue.2.f&quot;, 
+					archer will run both of them by the ASCII order.
+					</li>
+					<li>
+					If the name box is not focused, Archer will only find the first arrow which matches the whole name.
+					</li>
+				</ul></div>
+				<div class="tip" id="f_type">
+					"f" type with path list. Cmd likes:<br />
+					
+					<div class="code section2">
+						*c:\<br />
+						%programfiles%\python27\python.exe<br />
+						c:\python27\python.exe<br />
+					</div>
+					You can set a path list in Cmd, each line contain a path item.<br />
+					If first path doesn't exist, Archer will neither try next until find a valid path nor report an error.<br />
+					Start directory is optional. The first path must start with "*". Default start directory is the path's parent directory.
+				</div>
+				<div class="note">
+					Note: set the short name by your intuition, in which way you don't need to memorize it by rote and won't forget it.<br />
+					Note: the reserved [type] cannot be the system registered script extension.
+				</div>
+			</div>
+			<div id="stroke_statement_rule" class="section1 dashed_border">
+				<h3>Stroks can contain keyboard and mouse inputs. Statement syntax:</h3>
+				<ul>
+					<li>Strokes should be separated by white space(s).</li>
+					<li>Original stroke code indicates press and then release.</li>
+					<li>Prefix <span class="code">"~"</span> before a stroke code indicates press.</li>
+					<li>Prefix <span class="code">"!"</span> indicates release.</li>
+					<li>Prefix <span class="code">"@"</span> indicates the time to wait before next stroke. Such as <span class="code">"@10"</span> means delay 10ms</li>.
+				</ul>
+				<p>Addinal command:<br/>
+					<table class="code section2">
+						<tr><td style="text-align:right">Minimize window: </td><td>Min</td></tr>
+						<tr><td style="text-align:right">Maximize window: </td><td>Max</td></tr>
+						<tr><td style="text-align:right">Make window top most: </td><td>Top</td></tr>
+					</table>
+				</p>
+				<p>Mouse key:<br/>
+					<table class="code section2">
+						<tr><td style="text-align:right">Move: </td><td>MV(x, y)</td></tr>
+						<tr><td style="text-align:right">Left button: </td><td>ML</td></tr>
+						<tr><td style="text-align:right">Right button: </td><td>MR</td></tr>
+						<tr><td style="text-align:right">Wheel: </td><td>MW(d)</td></tr>
+						<tr><td style="text-align:right">Middle button: </td><td>MM</td></tr>
+						<tr><td style="text-align:right">XButton1: </td><td>M1</td></tr>
+						<tr><td style="text-align:right">XButton2: </td><td>M2</td></tr>
+					</table>
+				</p>
+				<p>
+					You can set further information of the mouse stroke like <span class="code">MV(100, 200)</span> to set the position.<br>
+					By default, The position is relatively to the last mouse position.<br/>
+					You can add <span class="code">"%"</span> at the end of the statement like <span class="code">MV(50, 50)%</span> (it will move mouse to the center of screen).
+				</p>
+				<p>Set <span class="code">MW(-300)</span> to set the the delta value of the wheel scrolling.</p>
+				<p>The followings are legal :</p>
+				<ul>
+					<li>A</li>
+					<li>~A !A (press down A and then release A, the same function as the line above)</li>
+					<li>~wIn s !win (not case sensitive)</li>
+					<li>~Ctrl V  !Ctrl Return Escape (paste sth from clipboard then press return then press escape)</li>
+					<li>MV(50,50)% ML ~Ctrl A !Ctrl (mouse click center of the screen then select all)</li>
+				</ul>
+			</div>
+		</div>
+		<div id="cmd" class="section1">
+			<h2>Cmd</h2>
+			<div class="section1">
+				Preset commands. Can be url, file path, folder path or any type of text file content.<br />
+				<b>Only Cmd and Arg can be encrypted</b>. Archer will encrypt the string via AES algorithm
+				(the salt and the vector are constant strings, you can decompile Archer to get them).<br />
+				You can set different password to different Cmd which means you needn't to use your account password.<br />
+				Be carefully when you are using several passwords.
+				If you forget the password, it will be be extremely hard to decrypt the corresponding Cmd.
+			</div>
+		</div>
+		<div id="arg" class="section1">
+			<h2>Arg</h2>
+			<div class="section1">
+				Preset arguments. These arguments will be insert into the Cmd.<br />
+				Arguments are separated by space. If one argument contains space, it should be surrounded by quotes.<br />
+				Arg will append to the end of the Cmd by default.<br />
+				For the url, file path and directory path, you can insert the Arg to specified place by using:<br />
+				"&lt;name default_value/&gt;" tag in the Cmd.
+				Name cannot contain white space, it is used as an hint. Such as,<br />
+				<table class="code section">
+					<tr><td>Name:</td><td>p.f</td></tr>
+					<tr><td>Cmd :</td><td>D:\picture_&lt;type sun/&gt;_&lt;number 00/&gt;.jpg</td></tr>
+				</table>
+				In the arguments box input"<span class="code">moon 02</span>", the arguments will be insert into the Cmd, the result is "<span class="code">D:\picture_moon_02.jpg</span>"
+				<div id="note_csharp_args" class="note">
+					Note: in C# type, argument that starts with "!" will be treated as the reference DLL path. Such as "!System.Data.dll".
+				</div>
+			</div>
+		</div>
+		<div id="tag" class="section1">
+			<h2>Tag</h2>
+			<p>Information about the arrow, tags or comments.</p>
+		</div>
+		<div id="hotkey" class="section1">
+			<h2>Hotkey</h2>
+			<div class="section1">
+				Hotkey statement. All the hotkeys will be registered globally. Because powerful always harmful, be careful when using this function. There's some simple rules about the statement:
+				<ul>
+					<li>Hotkey can be keyboard hotkey or mouse stroke hotkey.</li>
+					<li>If it's a keyboard hotkey, it should have one and only one normal key.</li>
+					<li>keyboard keys should be separated by white space(s).</li>
+					<li>If it's a mouse stroke hotkey, it should start with a <span class="code">"@"</span>.</li>
+					<li>Mouse stroke hotkey only has  four directions, left, up, right, down:<span class="code">"&lt;", "^", "&gt;", "v"</span>.</li>
+					<li>Mouse stroke is triggered when mouse right button down.</li>
+				</ul>
+				The followings are legal :<br />
+				<table class="code section2">
+					<tr><td>F2</td></tr>
+					<tr><td>Win S</td></tr>
+					<tr><td>wIn s (not case sensitive)</td></tr>
+					<tr><td>Ctrl Shift D</td></tr>
+					<tr><td>Alt Ctrl Shift Win F1</td></tr>
+					<tr><td>@ ^ > v^ (not space sensitive)</td></tr>
+				</table>
+				Whitespace in the statement will not affect the result. The available key information:
+				<a href="Key_List.html">Key List</a>.
+			</div>
+		</div>
+		<div id="count" class="section1">
+			<h2>Count</h2>
+			<div class="section1">Record how many times user used the arrow. Useful when deleting items user don't use very often.</div>
+		</div>
+	</div>
+	<div id="footer">
+		
+	</div>
+</body>
+</html>

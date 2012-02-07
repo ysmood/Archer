@@ -1,0 +1,232 @@
+﻿<!-- HTML Doc Version 0.1 y.s. -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<link rel="stylesheet" href="css/default.css" type="text/css"/>
+	<script type="text/JavaScript" src="js/jquery.js"></script>
+	<script type="text/JavaScript" src="js/frame.js"></script>
+	<script type="text/JavaScript" src="js/main.js"></script>
+	<title>Internal Function</title>
+</head>
+<body>
+	<div id="header">
+		<a href="#">Internal Function</a>
+	</div>
+	<div id="center">
+		<div class="section">
+			<h1>Internal Function</h1>
+			<p>
+				Introduce the internal function in Archer.These are some functions that I often use.
+				I guaranty that these functions will not have much side effect on the performance of Archer.
+				Every time I add a function, I will list it here.
+			</p>
+			<div>
+				<b>How to use?</b> Syntax example,<br />
+				<table class="code section">
+					<tr><td>Name:</td><td>cp.i</td></tr>
+					<tr><td>Cmd :</td><td>ColorPicker</td></tr>
+					<tr><td>Arg :</td><td></td></tr>
+					<tr><td>Tag :</td><td></td></tr>
+				</table>
+				<img class="snap" src="img/snap/internal_function_demo.png"/><br/>
+				If the Arg is empty Archer will get the input text from clipboard.<br />
+				If the return value is a string, Archer will copy the result to the clipboard.<br />
+				If the return value not specified, Archer will return a bool value if the function finished successfully, else return false.
+				The [type] should be "i",  [name] can be any string you want. The Cmd should be one title list below (case sensitive):
+			</div>
+		</div>
+		<div class="section1">
+			<h2>Upload</h2>
+			<div class="section1">
+				<div>
+					Upload a private user file to server. File size should less than 5MB. Demo:<br />
+				</div>
+				<table class="code section2">
+					<tr><td>Name:</td><td>upload.i</td></tr>
+					<tr><td valign="top">Cmd :</td><td>Upload</td></tr>
+					<tr><td>Arg :</td><td>C:\test.txt</td></tr>
+				</table>
+				<div>
+					The function will return the file's url and copy it to clipboard, and add a url line to the end of Cmd.
+				</div>
+			</div>
+		</div>
+		<div class="section1">
+			<h2>OpenTestFile</h2>
+			<div class="section1">
+				<div>
+					Run a test file by specified program and open it in a specified editor, when Archer is closed the temp file will be delelted immediately.<br />
+					It is useful when you just want create a test file to run some script unit test and then delete it.<br />
+					Simple example:<br />
+				</div>
+				<table class="code section2">
+					<tr><td>Name:</td><td>html.i</td></tr>
+					<tr><td valign="top">Cmd :</td><td>OpenTestFile<br />&lt;html&gt;In the new lines, additional script here.&lt;/html&gt;</td></tr>
+					<tr><td>Arg :</td><td>"html" "iexplore.exe" "notepad.exe"</td></tr>
+				</table>
+				<div>
+					About the Arg, the first argument is the file extension, second i s the program will open this file, third is the editor to open the file, fourth is the file content.
+					The last argument can be ignored, but others shouldn't.
+				</div>
+			</div>
+		</div>
+		<div class="section1">
+			<h2>InjectScript</h2>
+			<div class="section1">
+				<div>
+					Inject script into a web page.
+					Simple Guide:<br />
+					You can set the file path in the Arg property like (the url of target page should be put at last):
+				</div>
+				<table class="code section2">
+					<tr><td>Name:</td><td>is.i</td></tr>
+					<tr><td valign="top">Cmd :</td><td>InjectScript<br /> Alert('Hello World'); 
+						// In the new lines, additional script here.</td></tr>
+					<tr><td>Arg :</td><td>"http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.6.min.js" "main.js" "http://www.bing.com"</td></tr>
+				</table>
+				<div>
+					Or you can drag and drop the script file(s) into the window, browser will automatically add the file path into the stack.<br />
+					If the script path contains "?", it will not be invoked automatically.<br />
+					Once a script is installed, it can't be undo. But the same named script function will overwrite the older one.<br />
+					The browser has some visible COM API for scripting.<br />
+					you can invoke them use the <span class="code">"external"</span> object like:<span class="code"> external.hash('ID')</span>.<br />
+					Here the method list:<br />
+					<span class="note">Note: Flexible always means dangerous. Because the COM is out of the sandbox, make sure that you will visite save websites.</span>
+				</div>
+				<div class="code section2">
+					<span class="function_title">external.add_arrow(name, cmd, arg, tag, hotkey, enabled, encrypted, timestamp, guid)</span><br />
+					Add an arrow to Archer.<br />
+				</div>
+				<div class="code section2">
+					<span class="function_title">external.del_arrow(guid, date)</span><br />
+					Delete an arrow in Script Store(not your local storage). Archer will automaticlly check your authority.<br />
+				</div>
+				<div class="code section2">
+					<span class="function_title">external.refresh_archer()</span><br />
+					Refresh Archer's UI and save current settings.<br />
+				</div>
+				<div class="code section2">
+					<span class="function_title">external.hash(string)</span><br />
+					Returns a MD5 hashed string.<br />
+					<b><em>string</em></b>: string. The string to be hashed.<br />
+				</div>
+				<div class="code section2">
+					<span class="function_title">external.title</span><br />
+					String. Get or set the title of the browser.<br />
+				</div>
+				<div class="code section2">
+					<span class="function_title">external.archer</span><br />
+					String. Get the info of current Archer.<br />
+				</div>
+				<div class="code section2">
+					<span class="function_title">external.resize(width, height)</span><br />
+					Resize the window by specified width and height.<br />
+					<b><em>width</em></b>: int.<br />
+					<b><em>height</em></b>: int.<br />
+				</div>
+				<div class="code section2">
+					<span class="function_title">external.save_cache(from[, to[, overwirte]])</span><br />
+					Save the IE cache file to the specified location or file name. Be carefore, this is cache file, you should wait till the file downloaded, or you may get the file fragment or error.<br />
+					<b><em>from</em></b>: string. The url path of the object to save to the specified location.<br />
+					<b><em>to</em></b>: string, default is the archer's root folder. The location or file name the file to be saved to.<br />
+					<b><em>overwirte</em></b>: bool, default is false. The location or file name the file to be saved to.<br />
+				</div>
+				<div class="code section2">
+					<span class="function_title">external.run(path)</span><br />
+					Open a local file system object.<br />
+					<b><em>path</em></b>: string. A file path or a folder path.<br />
+				</div>
+				<div class="code section2">
+					<span class="function_title">external.js(code)</span><br />
+					Run JScript, return an object. 
+					This function gives a way to access the ActiveX object.<br />
+					<b><em>code</em></b>: string. JScript code to run.<br />
+				</div>
+				<div class="code section2">
+					<span class="function_title">external.vbs(code)</span><br />
+					Run VBScript, return an object. The same as JScript.<br />
+					<b><em>code</em></b>: string. VBScript code to run.<br />
+				</div>
+				<div class="code section2">
+					<span class="function_title">external.echo(output[, top_most])</span><br />
+					Output string to the output window.<br />
+					<b><em>output</em></b>: string. The string to be printed.<br />
+					<b><em>top_most</em></b>: bool. Whether to the output window should be top most. Default is false.<br />
+				</div>
+			</div>
+		</div>
+		<div class="section1">
+			<h2>InjectScript_jQuery</h2>
+			<div class="section1">
+				Inject jQuery 1.6 after the page loaded.
+			</div>
+		</div>
+		<div class="section1">
+			<h2>GetjQuery</h2>
+			<div class="section1">
+				Copy jQuery 1.6 to clipboard.
+			</div>
+		</div>
+		<div class="section1">
+			<h2>ClearAccountCache</h2>
+			<div class="section1">
+				Clear account cached information: user name and password.
+			</div>
+		</div>
+		<div class="section1">
+			<h2>ColorPicker</h2>
+			<div class="section1">
+				<img class="snap" src="img/snap/color_picker.png"/><br/>
+				Adobe style color dialog, and it can pick color on anywhere of the screen. Result format example: FFAACC<br />
+				Use the keyboard arrow key to move cursor by pixel. Default distance gain is 1, "Shift + Arrow Key" makes the gain 10;
+			</div>
+		</div>
+		<div class="section1">
+			<h2>Archer_ShowHide</h2>
+			<div class="section1">
+				Switch Acher main window's state between visible and unvisible.
+			</div>
+		</div>
+		<div class="section1">
+			<h2>Archer_Settings</h2>
+			<div class="section1">
+				Open Settings window.
+			</div>
+		</div>
+		<div class="section1">
+			<h2>Archer_Close</h2>
+			<div class="section1">
+				Close Archer.
+			</div>
+		</div>
+		<div class="section1">
+			<h2>Archer_Backup</h2>
+			<div class="section1">
+				Backup user data online by temporary user name and password.<br />
+				You can set the function like below: 
+				<table class="code section2">
+					<tr><td>Name:</td><td>bk.i</td></tr>
+					<tr><td valign="top">Cmd :</td><td>Archer_Backup<br /> User Name<br /> Password</td></tr>
+				</table>
+				User name and password should be separated by line(only in the third and forth line).
+			</div>
+		</div>
+		<div class="section1">
+			<h2>Archer_Recover</h2>
+			<div class="section1">
+				Recover user data online by temporary user name and password.<br />
+				You can set the function like below: 
+				<table class="code section2">
+					<tr><td>Name:</td><td>rec.i</td></tr>
+					<tr><td valign="top">Cmd :</td><td>Archer_Recover<br /> User Name<br /> Password</td></tr>
+				</table>
+				User name and password should be separated by line(only in the third and forth line).
+			</div>
+		</div>
+	</div>
+	<div id="footer">
+		
+	</div>
+</body>
+</html>

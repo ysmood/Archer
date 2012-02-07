@@ -1,0 +1,16 @@
+﻿/*
+	CSS Doc y.s.
+*/
+#reset_form
+{
+	width: 360px;
+	padding-top: 5px;
+	height: 75px;
+	margin: auto;
+	background: url(../img/reset-bg.png) no-repeat 15px 0;
+}
+.row
+{
+	margin-top: 25px;
+}
+

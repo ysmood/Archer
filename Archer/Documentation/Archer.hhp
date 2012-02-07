@@ -1,0 +1,22 @@
+[OPTIONS]
+Compatibility=1.1 or later
+Compiled file=Archer.chm
+Contents file=Table of Contents.hhc
+Default Window=default
+Default topic=contents\0-Archer.html
+Display compile notes=No
+Display compile progress=No
+Full-text search=Yes
+Index file=Archer.hhk
+Language=0x409 English (United States)
+Title=Archer
+
+[WINDOWS]
+default="Archer","Table of Contents.hhc","Archer.hhk","contents\0-Archer.html","contents\0-Archer.html",,,,,0x2520,,0x387e,[252,51,1142,659],,,,,,,0
+
+
+[FILES]
+contents\0-Archer.html
+
+[INFOTYPES]
+

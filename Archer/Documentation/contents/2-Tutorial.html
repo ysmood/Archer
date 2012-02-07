@@ -1,0 +1,128 @@
+﻿<!-- HTML Doc Version 0.1 y.s. -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<link rel="stylesheet" href="css/default.css" type="text/css"/>
+	<script type="text/JavaScript" src="js/jquery.js"></script>
+	<script type="text/JavaScript" src="js/frame.js"></script>
+	<script type="text/JavaScript" src="js/main.js"></script>
+	<title>Tutorial</title>
+</head>
+<body>
+	<div id="header">
+		<a href="#">Tutorial</a>
+	</div>
+	<div id="center">
+		<div class="section">
+			<h1 id="parameter">Tutorial</h1>
+			<p>
+				Simple tutorials to demonstrate the basic uses of Archer.<br/>
+				<a href="http://archer.sinaapp.com/demo.php?r=tutorial" target="_blank">
+					<img src="img/tutorial.png" style="border: none"/>
+					Video tutorial
+				</a>
+			</p>
+		</div>
+		<div class="section1">
+			<h2>Drag and drop item(s) into Archer to create arrow(s)</h2><span class="home_link"></span>
+			<ol>
+				<li>Simply drag a file or a folder or a string into Archer's main window.</li>
+				<li>Change the Name, such as "item", then press Enter or TAB.</li>
+			</ol>
+		</div>
+		<div class="section1">
+			<h2>Quick way to open web search engine with key words</h2><span class="home_link"></span>
+			<ol>
+				<li>Open the Settings window.</li>
+				<li>
+					Add an item, input following information,
+					<table class="code">
+						<tr><td>Name:</td><td>b</td></tr>
+						<tr><td>Cmd :</td><td>http://www.bing.com/search?q=&lt;Keyword/&gt;&first=</td></tr>
+					</table>
+				</li>
+				<li>Save settings(Ctrl + S).</li>
+				<li>
+					Input "b" in Archer's left input box, then press Space or TAB, then input "sky 20", then press Enter.<br/>
+					Archer will open website Bing.com and search keyword "sky" and show up the 20th result.
+				</li>
+			</ol>
+		</div>
+		<div class="section1">
+			<h2>Directly search selected text</h2>
+			<ol>
+				<li>
+					Open the Settings window, add an item,
+					<table class="code">
+						<tr><td>Name:</td><td>s</td></tr>
+						<tr><td>Type:</td><td>t</td></tr>
+						<tr><td>Cmd :</td><td>http://www.bing.com/search?q=</td></tr>
+						<tr><td>Key :</td><td>Win + S</td></tr>
+					</table>
+				</li>
+				<li>Ctrl + S save settings.</li>
+				<li>
+					Select any text in any application, then press "Win + S".<br/>
+					Archer will open website Bing.com and search the selected keyword.
+				</li>
+			</ol>
+		</div>
+		<div class="section1">
+			<h2>Quick way to operate file system object</h2>
+			<ol>
+				<li>
+					Add an item, input following information and save settings,
+					<table class="code">
+						<tr><td>Name:</td><td>f</td></tr>
+						<tr><td>Cmd :</td><td>explorer.exe /select,%windir%\</td></tr>
+						<tr><td>Tag :</td><td>This is comment</td></tr>
+					</table>
+				</li>
+				<li>
+					Win + A, input the "f", then press Space or TAB, then input "Fonts", then press Enter.
+					Archer will open system folder and just select the directory "Fonts".
+				</li>
+			</ol>
+		</div>
+		<div class="section1">
+			<h2>Run script</h2>
+			<ol>
+				<li>
+					Add an item, input following information and save settings,
+					<table class="code">
+						<tr><td>Name:</td><td>test</td></tr>
+						<tr><td>Type:</td><td>bat</td></tr>
+						<tr><td>Cmd :</td><td>@echo"Hello %1"& pause</td></tr>
+						<tr><td>Arg :</td><td>World</td></tr>
+						<tr><td>Tag :</td><td>Select folder</td></tr>
+						<tr><td>Key :</td><td>Win + H</td></tr>
+					</table>
+				</li>
+				<li>
+					Press "Win + H".This is a more complex usage of Archer, it will run the script and print "Hello World" in the console window.<br/>
+					Windows batch or vbs is easy to access, Python and other script types are powerful.
+				</li>
+			</ol>
+		</div>
+		<div class="section1">
+			<h2>Run internal C# script</h2>
+			<ol>
+				<li>
+					Add an item, input following information and save settings,
+					<table class="code">
+						<tr><td>Name:</td><td>CSharp</td></tr>
+						<tr><td>Type:</td><td>c#</td></tr>
+						<tr><td>Cmd :</td><td>Clipboard.SetText("Hello World!");</td></tr>
+						<tr><td>Tag :</td><td>Copy string to clipboard</td></tr>
+					</table>
+				</li>
+				<li>
+					Run this arrow, it will copy the text to clipboard.
+				</li>
+			</ol>
+		</div>
+	</div>
+	<div id="footer"></div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+﻿body
+{
+	font-size: 12px;
+	font-family: "Microsoft YaHei", Arial, SimSun;
+	line-height: 150%;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+img
+{
+	border: 0 none;
+}
+#main
+{
+	padding-top: 200px;
+	background: url(../img/bg.jpg) repeat-x;
+	height: 400px;
+	display: none;
+}
+#center
+{
+	margin: -46px 1px 0 0;
+	height: 20px;
+	font-size: 30px;
+	font-weight: bold;
+	color: #fff;
+	position: relative;
+}
+#underConstruction
+{
+	display: none;
+}
+#bottom
+{
+	margin: 300px 0 10px 0;
+}
+.copyright
+{
+	color: #666;
+}
+img.icon
+{
+	width: 64px;
+	height: 64px;
+	border: 0 none;
+}
+.archer, .share, .pebble, .download, .sign_up
+{
+	position: absolute;
+	right: 20px;
+	top: 20px;
+	cursor: pointer;
+	display: none;
+}
+.share
+{
+	top: 100px;
+}
+.pebble
+{
+	top: 170px;
+}
+.download
+{
+	top: 240px;
+}
+.sign_up
+{
+	top: 310px;
+}

@@ -1,0 +1,83 @@
+/* CSS Doc */
+
+body
+{
+    background: #fcfcfc;
+    margin: 0px;
+    padding: 0px;
+}
+
+#main
+{
+    position: absolute;
+    left: 20px;
+    top: 30px;
+	background: url(../img/game_bg.png) no-repeat 7px 7px;
+	height: 380px;
+	width: 380px;
+}
+
+#display
+{
+    font: 20px Georgia;
+    color: #666;
+    margin: 10px 35px;
+}
+#display span
+{
+    color: #888;
+}
+
+.num
+{
+	height: 130px;
+	width: 58px;
+	background: url(../img/numbers.png);
+	position: absolute;
+    cursor: pointer;
+}
+
+#num_0
+{
+	left: 66px;
+	top: 35px;
+}
+
+#num_1
+{
+	left: 260px;
+	top: 35px;
+}
+
+#num_2
+{
+	left: 66px;
+	top: 220px;
+}
+
+#num_3
+{
+	left: 260px;
+	top: 220px;
+}
+
+.clicked, #selected
+{
+    background: url(../img/selected.png) no-repeat;
+    width: 150px;
+    height: 150px;
+}
+
+.clicked
+{
+    position: relative;
+    left: -42px;
+    top: -8px;
+}
+
+#selected
+{
+	position: absolute;
+    left: 24px;
+    top: 27px;
+}

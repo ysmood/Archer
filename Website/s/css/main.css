@@ -1,0 +1,123 @@
+/* CSS Doc y.s. */
+
+body			{ font-family: Consolas, "Courier New", SimSun; font-size: 14px; line-height: 150%; margin: 0; padding: 0; }
+a				{ text-decoration: none; margin: 0 2px; border-bottom: 2px solid #91a2ae; color: #176092; vertical-align: middle; cursor: pointer; }
+a:hover			{ border-bottom: 2px solid #176092; }
+pre				{ font-family: Consolas,"Courier New",SimSun; }
+img
+{
+	border: 0 none;
+}
+.float_left
+{
+	float: left;
+}
+.float_right
+{
+	float: right;
+}
+#main
+{
+	display: none;
+	background: #fff;
+}
+#top
+{
+	padding: 5px;
+	width: 100%;
+	border-bottom: 1px solid #C9D7F1;
+	height: 100%;
+}
+.navigator span
+{
+	border: 1px solid #ddd;
+	padding: 2px;
+}
+#top a, #bottom a
+{
+	border-bottom: none;
+}
+#top a:hover, #bottom a:hover
+{
+	border-bottom: 2px solid #176092;
+}
+.goto_page input
+{
+	width: 30px;
+	text-align: center;
+	height: 16px;
+}
+
+.search
+{
+	margin-right: 30px;
+}
+.highlight
+{
+    background-color: #ffa;
+}
+
+#center
+{
+	text-align: left;
+}
+
+.arrow
+{
+	margin: 10px;
+	padding: 5px;
+	background-color: #98C6FF;
+	background-image: url(../img/arrow_bg.png);
+	background-repeat: no-repeat;
+	background-position: 5px 5px;
+	display: none;
+}
+.arrow .row
+{
+	width: 100%;
+	clear: both;
+}
+.arrow div .name
+{
+	text-align: right;
+	width: 60px;
+	font-weight: bold;
+	color: #4A3851;
+}
+.tag .value, .arg .value
+{
+	float: left;
+}
+.cmd .value
+{
+	height: 40px;
+	overflow: hidden;
+	position: relative;
+	margin-right: 30px;
+}
+.btn_add
+{
+	cursor: pointer;
+	text-align: right;
+}
+.btn_delete
+{
+	cursor: pointer;
+	text-align: right;
+	margin-right: 6px;
+}
+
+#bottom
+{
+	border-top: 1px solid #C9D7F1;
+	padding: 5px;
+	height: 100%;
+}
+.copyright
+{
+	border-top: 1px dashed #aaa;
+	margin: 10px 5px;
+	padding-top: 3px;
+	color: #666;
+	text-align: center;
+}

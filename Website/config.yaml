@@ -1,0 +1,7 @@
+name: archer
+version: 1
+#cron:
+#    - description: cron test
+#      url: index.php
+#      schedule: every 42 mins
+#      timezone: Beijing

@@ -1,0 +1,89 @@
+﻿/*
+	CSS Doc y.s.
+*/
+body
+{
+	font-size: 12px;
+	font-family: "Microsoft YaHei", Arial, SimSun;
+	line-height: 150%;
+	margin: 0;
+	padding: 0;
+	color: #222;
+	text-align: center;
+}
+img
+{
+	border: 0 none;
+}
+#main
+{
+	padding-top: 100px;
+	background: url(../../img/bg.jpg) repeat-x;
+	display: none;
+}
+#top a.home
+{
+	font-weight: bold;
+	text-decoration: none;
+	color: #fff;
+}
+#top a.home:hover
+{
+	border-bottom: 2px solid #48a;
+}
+#bottom
+{
+	margin: 200px 0 10px 0;
+}
+.copyright
+{
+	color: #666;
+}
+
+#reg_form
+{
+	width: 360px;
+	padding-top: 5px;
+	height: 160px;
+	margin: auto;
+	background: url(../img/form-bg.png) no-repeat 15px 0;
+}
+.row
+{
+	margin-top: 20px;
+	height: 24px;
+	clear: both;
+}
+.row *
+{
+	float: left;
+}
+input
+{
+	width: 160px;
+}
+.label
+{
+	width: 100px;
+	text-align: right;
+	padding: 0 5px;
+	color: #fff;
+	font-weight: bold;
+}
+.state
+{
+	padding: 0 5px;
+	color: #666;
+	font-weight: bold;
+}
+#recaptcha_area
+{
+	margin: 30px auto 0 auto;
+}
+button#submit
+{
+	width: 100px;
+	font-weight: bold;
+	color: #555;
+	margin: 10px auto;
+}
