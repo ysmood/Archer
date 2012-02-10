@@ -48,7 +48,7 @@ Enabled  tinyint NOT NULL DEFAULT 0,
 Encrypted  tinyint NOT NULL DEFAULT 0,
 Timestamp  datetime NOT NULL,
 GUID  char(50) NOT NULL,
-PRIMARY KEY (GUID ASC)
+PRIMARY KEY (Name)
 );";
 			da.Connection.Open();
 			da.Adapter.SelectCommand.ExecuteNonQuery();

@@ -13,18 +13,28 @@ using System.Threading;
 
 namespace Archer
 {
+	/// <summary>
+	/// Singleton object
+	/// </summary>
 	public class HttpServer
 	{
 		public HttpServer(int port = 2357, string charset = "utf-8")
 		{
+			if (Instance == null)
+			{
+				Instance = this;
+			}
+			else
+			{
+				throw new Exception("Only one object instance is allowed");
+			}
+
 			server = bindSocket("127.0.0.1", port);
 			messageQueue = Queue.Synchronized(new Queue());		// thread safe
 			encoder = Encoding.GetEncoding(charset);
-
-			MainServer = this;
 		}
 
-		public static HttpServer MainServer;
+		public static HttpServer Instance;
 		public int Port
 		{
 			get { return ((IPEndPoint)server.LocalEndPoint).Port; }

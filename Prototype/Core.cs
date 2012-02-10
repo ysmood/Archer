@@ -17,7 +17,7 @@ namespace Archer
 		public Core()
 		{
 			UserDataSet.CheckAndFix();
-			this.httpServer = HttpServer.MainServer;
+			this.httpServer = HttpServer.Instance;
 			resource = new Resource();
 		}
 
