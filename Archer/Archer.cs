@@ -407,7 +407,7 @@ namespace Archer
 
 					foreach(string item in cmds)
 					{
-						if (item.StartsWith("*")) startDir = item.TrimStart('*');
+						if (item.StartsWith("*")) startDir = item.TrimStart('*').Trim(new char[] { '\r', '\n', '"' });
 
 						cmd = Common.UnfoldEV(item);
 						arg = arg_origin;

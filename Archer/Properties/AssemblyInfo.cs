@@ -15,7 +15,7 @@ using System.Runtime.InteropServices;
 
 [assembly: Guid("C7C661AD-037A-4684-980E-876B32F8BCF0")]
 
-[assembly: AssemblyVersion("0.0.5.3")]
-[assembly: AssemblyFileVersion("0.0.5.3")]
+[assembly: AssemblyVersion("0.0.5.4")]
+[assembly: AssemblyFileVersion("0.0.5.4")]
 
 [assembly: System.Runtime.CompilerServices.InternalsVisibleTo("TestProject")]

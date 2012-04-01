@@ -25,6 +25,8 @@ namespace Archer
 		{
 			Thread main = new Thread(new ThreadStart(Main));
 			main.Start();
+			int shutdown = 0;
+			shutdown++;
 		}
 
 		/// <summary>
