@@ -7,8 +7,7 @@ function frame()
 		'<a href="0-Archer.html">Archer Documentation</a> &gt;&gt; '
 	);
 	$('#footer').append(
-		'May 2011 y.s.<br>' +
-		'E-mail: archer_server@sina.com'
+		'May 2011 ys<br>'
 	);
 
 	var index = location.href.substr(location.href.lastIndexOf('/') + 1,1);

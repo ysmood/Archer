@@ -51,16 +51,16 @@ namespace Archer
 		#region String
 		public static string UserData = Directory.GetParent(Application.ExecutablePath) + "\\UserData.xml";
 
-		public static string ArcherHome = "http://archer.sinaapp.com/";
-		public static string ArcherProjectHome = "http://code.google.com/p/ys-archer/";
-		public static string ArcherDeploy = "http://archer.sinaapp.com/deploy.php";
-		public static string ArcherSctiptStore = "http://archer.sinaapp.com/s/";
-		public static string ArcherSctiptStore_Share = "http://archer.sinaapp.com/s/share.php";
-		public static string ArcherSctiptStore_Delete = "http://archer.sinaapp.com/s/del.php";
-		public static string ArcherOnlineService = "http://archer.sinaapp.com/service.php";
-		public static string ArcherRegister = "http://archer.sinaapp.com/r/";
-		public static string ArcherResetPassword = "http://archer.sinaapp.com/r/reset.php";
-		public static string ArcherFileUpload = "http://archer.sinaapp.com/u/uf.php";
+		public static string ArcherHome = "http://ysmood.org/archer";
+		public static string ArcherProjectHome = "https://github.com/ysmood/Archer";
+		public static string ArcherDeploy = "http://ysmood.org/archer/deploy";
+		public static string ArcherSctiptStore = "http://ysmood.org/archer/store";
+		public static string ArcherSctiptStore_Share = "http://ysmood.org/archer/store/share";
+		public static string ArcherSctiptStore_Delete = "http://ysmood.org/archer/store/delete";
+		public static string ArcherOnlineService = "http://ysmood.org/archer/service";
+		public static string ArcherRegister = "http://ysmood.org/archer/register";
+		public static string ArcherResetPassword = "http://ysmood.org/archer/register/reset";
+		public static string ArcherFileUpload = "http://ysmood.org/archer/upload";
 		public static string ArcherTemp = Environment.GetEnvironmentVariable("TEMP") + "\\" + "Archer-";
 
 
@@ -211,7 +211,7 @@ sub Main
 		if Err.Number = 70 then	' If Archer is still running, loop.
 			if maxTimeOut = 0 then
 				msgbox ""Self update failed, please update Archer manually.""
-				ws.run ""http://archer.sinaapp.com/d""
+				ws.run ""http://ysmood.org/archerd""
 				ClearTempFile
 				exit sub
 			else

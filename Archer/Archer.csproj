@@ -298,7 +298,6 @@
     <Content Include="Image\Help.png" />
     <Content Include="Image\Home.png" />
     <Content Include="Image\MainWindow.png" />
-    <Content Include="Image\notifyIcon.ico" />
     <Content Include="Image\OK.png" />
     <Content Include="Image\OpenAsText.png" />
     <Content Include="Image\Refresh.png" />
