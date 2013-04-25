@@ -43,8 +43,7 @@ namespace Archer
 
 		private void btnChangePassword_Click(object sender, EventArgs e)
 		{
-			if (!string.IsNullOrEmpty(txtCurrentPassword.Text)
-				&& !string.IsNullOrEmpty(txtConfirm.Text)
+			if (!string.IsNullOrEmpty(txtConfirm.Text)
 				&& txtNewPassword.Text == txtConfirm.Text)
 			{
 				ChangePassword();
@@ -61,14 +60,10 @@ namespace Archer
 
 		private void ChangePassword()
 		{
-			Main.Setting.UserName = txtUserName.Text;
-			Main.Setting.Password = ys.Common.Md5Hash(txtCurrentPassword.Text);
-
 			ServerContactor sc = new ServerContactor();
 			sc.Show(this);
 			sc.ChangePassword(ys.Common.Md5Hash(txtConfirm.Text));
 
-			txtCurrentPassword.Text = string.Empty;
 			txtNewPassword.Text = string.Empty;
 			txtConfirm.Text = string.Empty;
 		}
@@ -80,15 +75,6 @@ namespace Archer
 		private void linkForgetPassword_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 		{
 			ys.Common.Start(Resource.ArcherResetPassword);
-		}
-
-		private void txtUserName2_TextChanged(object sender, EventArgs e)
-		{
-			txtUserName.Text = txtUserName2.Text;
-		}
-		private void txtUserName_TextChanged(object sender, EventArgs e)
-		{
-			txtUserName2.Text = txtUserName.Text;
 		}
 
 		private void btnBackup_Click(object sender, EventArgs e)

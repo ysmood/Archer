@@ -725,6 +725,99 @@ namespace Archer
 				accountWnd.ShowDialog();
 			}
 		}
+		private void StartCheckAndUpdate(object sender, EventArgs eventArg)
+		{
+			string deployUrl = Resource.ArcherDeploy
+								+ "?r=a&info=" + System.Web.HttpUtility.UrlEncode(this.Text)
+								+ "&os=" + Environment.OSVersion.Version.Major;
+
+			Dictionary<string, string> deployInfo = new Dictionary<string, string>();
+
+			if (bgwUpdateChecker != null && bgwUpdateChecker.IsBusy)
+			{
+				bgwUpdateChecker.CancelAsync();
+				bgwUpdateChecker.Dispose();
+			}
+
+			bgwUpdateChecker = new BackgroundWorker();
+			bgwUpdateChecker.WorkerSupportsCancellation = true;
+
+			bgwUpdateChecker.DoWork += (o, e) =>
+			{
+				try
+				{
+					if (sender == null)
+						System.Threading.Thread.Sleep(1000 * 60 * 3);
+
+					WebClient client = new WebClient();
+
+					WebRequest wr = WebRequest.Create(deployUrl);
+					WebResponse re = wr.GetResponse();
+
+					fastJSON.JsonParser jsonParser = new fastJSON.JsonParser(new StreamReader(re.GetResponseStream()).ReadToEnd());
+					Dictionary<string, object> raw = jsonParser.Decode() as Dictionary<string, object>;
+
+					foreach (var item in raw)
+						deployInfo.Add(item.Key, item.Value as string);
+
+					if (deployInfo["version"].CompareTo(resource.AssemblyVersion) > 0)
+						e.Result = true;
+					else
+						e.Result = false;
+				}
+				catch (Exception)
+				{
+					e.Result = false;
+				}
+			};
+			bgwUpdateChecker.RunWorkerCompleted += (o, e) =>
+			{
+				if ((bool)e.Result)
+				{
+					if (sender == null)
+						notifyIcon.ShowBalloonTip(5000, Resource.NewerVersionFound,
+							string.Format(Resource.NewVersionInfo,
+								resource.AssemblyVersion,
+								deployInfo["version"],
+								deployInfo["info"]
+							),
+							ToolTipIcon.Info
+						);
+
+					notifyIcon.BalloonTipClicked -= balloonTipClicked;
+					balloonTipClicked = (oo, ee) =>
+					{
+						string dir = AppDomain.CurrentDomain.BaseDirectory;
+						string tempDir = Resource.ArcherTemp + Guid.NewGuid().ToString();
+						string file = Resource.ArcherTemp + Guid.NewGuid().ToString() + ".zip";
+
+						Downloader uw = new Downloader();
+						uw.Show();
+						uw.Completed += (ooo, eee) =>
+						{
+							ys.Common.RunTempScript(Resource.SelfUpdate, "vbs", tempDir, file, dir);
+							this.Close();
+						};
+						uw.StartDownload(
+							deployInfo["url"],
+							file
+						);
+					};
+					if (sender != null)
+						balloonTipClicked(null, null);
+					else
+						notifyIcon.BalloonTipClicked += balloonTipClicked;
+				}
+				else if (sender != null)
+				{
+					notifyIcon.ShowBalloonTip(5000,
+						Resource.NoNewerVersion,
+						" ",
+						ToolTipIcon.Info);
+				}
+			};
+			bgwUpdateChecker.RunWorkerAsync();
+		}
 
 
 		/// ******** Private Part ******** 
@@ -750,6 +843,29 @@ namespace Archer
 			Gesture = !Gesture;
 		}
 
+		private void SetRunOnStart(object sender, EventArgs e)
+		{
+			runOnStartToolStripMenuItem.Checked = !runOnStartToolStripMenuItem.Checked;
+			if (runOnStartToolStripMenuItem.Checked)
+			{
+				string temp = Common.RunTempScript(
+					string.Format(Resource.CreateAutoStartShortcut,
+						Environment.GetFolderPath(Environment.SpecialFolder.Startup) + "\\" + resource.AssemblyProduct + ".lnk",
+						Application.ExecutablePath,
+						Directory.GetParent(Application.ExecutablePath).FullName
+					),
+					"vbs"
+				);
+				TempFiles.Add(temp);
+			}
+			else
+			{
+				File.Delete(
+					Environment.GetFolderPath(Environment.SpecialFolder.Startup)
+					+ "\\" + resource.AssemblyProduct + ".lnk"
+				);
+			}
+		}
 
 		// Init Keyboard Control
 		private void InitGlobalHotKey()
@@ -1495,125 +1611,6 @@ namespace Archer
 			browser.AdditionalScript = sr.ReadToEnd();
 			sr.Close();
 			browser.Show();
-		}
-
-
-		// Downloading new version
-		private void StartCheckAndUpdate(object sender, EventArgs eventArg)
-		{
-			string deployUrl = Resource.ArcherDeploy
-								+ "?r=a&info=" + System.Web.HttpUtility.UrlEncode(this.Text)
-								+ "&os=" + Environment.OSVersion.Version.Major;
-
-			Dictionary<string, string> deployInfo = new Dictionary<string, string>();
-
-			if (bgwUpdateChecker != null && bgwUpdateChecker.IsBusy)
-			{
-				bgwUpdateChecker.CancelAsync();
-				bgwUpdateChecker.Dispose();
-			}
-
-			bgwUpdateChecker = new BackgroundWorker();
-			bgwUpdateChecker.WorkerSupportsCancellation = true;
-
-			bgwUpdateChecker.DoWork += (o, e) =>
-			{
-				try
-				{
-					if (sender == null)
-						System.Threading.Thread.Sleep(1000 * 60 * 3);
-
-					WebClient client = new WebClient();
-
-					WebRequest wr = WebRequest.Create(deployUrl);
-					WebResponse re = wr.GetResponse();
-
-					fastJSON.JsonParser jsonParser = new fastJSON.JsonParser(new StreamReader(re.GetResponseStream()).ReadToEnd());
-					Dictionary<string, object> raw = jsonParser.Decode() as Dictionary<string, object>;
-
-					foreach (var item in raw)
-						deployInfo.Add(item.Key, item.Value as string);
-
-					if (deployInfo["version"].CompareTo(resource.AssemblyVersion) > 0)
-						e.Result = true;
-					else
-						e.Result = false;
-				}
-				catch (Exception)
-				{
-					e.Result = false;
-				}
-			};
-			bgwUpdateChecker.RunWorkerCompleted += (o, e) =>
-			{
-				if ((bool)e.Result)
-				{
-					if (sender == null)
-						notifyIcon.ShowBalloonTip(5000, Resource.NewerVersionFound,
-							string.Format(Resource.NewVersionInfo,
-								resource.AssemblyVersion,
-								deployInfo["version"],
-								deployInfo["info"]
-							),
-							ToolTipIcon.Info
-						);
-					
-					notifyIcon.BalloonTipClicked -= balloonTipClicked;
-					balloonTipClicked = (oo, ee) =>
-					{
-						string dir = AppDomain.CurrentDomain.BaseDirectory;
-						string tempDir = Resource.ArcherTemp + Guid.NewGuid().ToString();
-						string file = Resource.ArcherTemp + Guid.NewGuid().ToString() + ".zip";
-
-						Downloader uw = new Downloader();
-						uw.Show();
-						uw.Completed += (ooo, eee) =>
-						{
-							ys.Common.RunTempScript(Resource.SelfUpdate, "vbs", tempDir, file, dir);
-							this.Close();
-						};
-						uw.StartDownload(
-							deployInfo["url"],
-							file
-						);
-					};
-					if (sender != null)
-						balloonTipClicked(null, null);
-					else
-						notifyIcon.BalloonTipClicked += balloonTipClicked;
-				}
-				else if (sender != null)
-				{
-					notifyIcon.ShowBalloonTip(5000,
-						Resource.NoNewerVersion,
-						" ",
-						ToolTipIcon.Info);
-				}
-			};
-			bgwUpdateChecker.RunWorkerAsync();
-		}
-		private void SetRunOnStart(object sender, EventArgs e)
-		{
-			runOnStartToolStripMenuItem.Checked = !runOnStartToolStripMenuItem.Checked;
-			if (runOnStartToolStripMenuItem.Checked)
-			{
-				string temp = Common.RunTempScript(
-					string.Format(Resource.CreateAutoStartShortcut,
-						Environment.GetFolderPath(Environment.SpecialFolder.Startup) + "\\" + resource.AssemblyProduct + ".lnk",
-						Application.ExecutablePath,
-						Directory.GetParent(Application.ExecutablePath).FullName
-					),
-					"vbs"
-				);
-				TempFiles.Add(temp);
-			}
-			else
-			{
-				File.Delete(
-					Environment.GetFolderPath(Environment.SpecialFolder.Startup)
-					+ "\\" + resource.AssemblyProduct + ".lnk"
-				);
-			}
 		}
 
 

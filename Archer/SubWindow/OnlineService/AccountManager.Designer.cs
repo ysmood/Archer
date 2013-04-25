@@ -43,14 +43,10 @@
 			this.btnBackup = new System.Windows.Forms.Button();
 			this.linkForgetPassword = new System.Windows.Forms.LinkLabel();
 			this.tabChangePassword = new System.Windows.Forms.TabPage();
-			this.txtUserName2 = new System.Windows.Forms.TextBox();
-			this.label6 = new System.Windows.Forms.Label();
 			this.txtConfirm = new System.Windows.Forms.TextBox();
 			this.label5 = new System.Windows.Forms.Label();
-			this.txtCurrentPassword = new System.Windows.Forms.TextBox();
 			this.txtNewPassword = new System.Windows.Forms.TextBox();
 			this.button1 = new System.Windows.Forms.Button();
-			this.label3 = new System.Windows.Forms.Label();
 			this.btnChangePassword = new System.Windows.Forms.Button();
 			this.label4 = new System.Windows.Forms.Label();
 			this.toolTip = new System.Windows.Forms.ToolTip(this.components);
@@ -61,18 +57,17 @@
 			// 
 			// txtUserName
 			// 
-			this.txtUserName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-						| System.Windows.Forms.AnchorStyles.Right)));
+			this.txtUserName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.txtUserName.Location = new System.Drawing.Point(81, 18);
 			this.txtUserName.Name = "txtUserName";
 			this.txtUserName.Size = new System.Drawing.Size(192, 20);
 			this.txtUserName.TabIndex = 0;
-			this.txtUserName.TextChanged += new System.EventHandler(this.txtUserName_TextChanged);
 			// 
 			// txtPassword
 			// 
-			this.txtPassword.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-						| System.Windows.Forms.AnchorStyles.Right)));
+			this.txtPassword.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.txtPassword.Location = new System.Drawing.Point(81, 55);
 			this.txtPassword.Name = "txtPassword";
 			this.txtPassword.PasswordChar = '●';
@@ -175,7 +170,7 @@
 			this.btnRecover.Size = new System.Drawing.Size(46, 30);
 			this.btnRecover.TabIndex = 3;
 			this.toolTip.SetToolTip(this.btnRecover, "Recover settings from server.\r\nIf Ctrl pressed, Archer will recover to the second" +
-					" last version.");
+        " last version.");
 			this.btnRecover.UseVisualStyleBackColor = true;
 			this.btnRecover.Click += new System.EventHandler(this.btnRecover_Click);
 			// 
@@ -207,14 +202,10 @@
 			// 
 			// tabChangePassword
 			// 
-			this.tabChangePassword.Controls.Add(this.txtUserName2);
-			this.tabChangePassword.Controls.Add(this.label6);
 			this.tabChangePassword.Controls.Add(this.txtConfirm);
 			this.tabChangePassword.Controls.Add(this.label5);
-			this.tabChangePassword.Controls.Add(this.txtCurrentPassword);
 			this.tabChangePassword.Controls.Add(this.txtNewPassword);
 			this.tabChangePassword.Controls.Add(this.button1);
-			this.tabChangePassword.Controls.Add(this.label3);
 			this.tabChangePassword.Controls.Add(this.btnChangePassword);
 			this.tabChangePassword.Controls.Add(this.label4);
 			this.tabChangePassword.Location = new System.Drawing.Point(4, 22);
@@ -225,30 +216,11 @@
 			this.tabChangePassword.Text = "Change Password";
 			this.tabChangePassword.UseVisualStyleBackColor = true;
 			// 
-			// txtUserName2
-			// 
-			this.txtUserName2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-						| System.Windows.Forms.AnchorStyles.Right)));
-			this.txtUserName2.Location = new System.Drawing.Point(105, 10);
-			this.txtUserName2.Name = "txtUserName2";
-			this.txtUserName2.Size = new System.Drawing.Size(166, 20);
-			this.txtUserName2.TabIndex = 17;
-			this.txtUserName2.TextChanged += new System.EventHandler(this.txtUserName2_TextChanged);
-			// 
-			// label6
-			// 
-			this.label6.AutoSize = true;
-			this.label6.Location = new System.Drawing.Point(35, 14);
-			this.label6.Name = "label6";
-			this.label6.Size = new System.Drawing.Size(63, 13);
-			this.label6.TabIndex = 18;
-			this.label6.Text = "User Name:";
-			// 
 			// txtConfirm
 			// 
-			this.txtConfirm.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-						| System.Windows.Forms.AnchorStyles.Right)));
-			this.txtConfirm.Location = new System.Drawing.Point(104, 94);
+			this.txtConfirm.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.txtConfirm.Location = new System.Drawing.Point(104, 44);
 			this.txtConfirm.Name = "txtConfirm";
 			this.txtConfirm.PasswordChar = '●';
 			this.txtConfirm.Size = new System.Drawing.Size(165, 20);
@@ -257,27 +229,17 @@
 			// label5
 			// 
 			this.label5.AutoSize = true;
-			this.label5.Location = new System.Drawing.Point(53, 98);
+			this.label5.Location = new System.Drawing.Point(53, 48);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(45, 13);
 			this.label5.TabIndex = 16;
 			this.label5.Text = "Confirm:";
 			// 
-			// txtCurrentPassword
-			// 
-			this.txtCurrentPassword.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-						| System.Windows.Forms.AnchorStyles.Right)));
-			this.txtCurrentPassword.Location = new System.Drawing.Point(104, 38);
-			this.txtCurrentPassword.Name = "txtCurrentPassword";
-			this.txtCurrentPassword.PasswordChar = '●';
-			this.txtCurrentPassword.Size = new System.Drawing.Size(166, 20);
-			this.txtCurrentPassword.TabIndex = 0;
-			// 
 			// txtNewPassword
 			// 
-			this.txtNewPassword.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-						| System.Windows.Forms.AnchorStyles.Right)));
-			this.txtNewPassword.Location = new System.Drawing.Point(104, 66);
+			this.txtNewPassword.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.txtNewPassword.Location = new System.Drawing.Point(104, 16);
 			this.txtNewPassword.Name = "txtNewPassword";
 			this.txtNewPassword.PasswordChar = '●';
 			this.txtNewPassword.Size = new System.Drawing.Size(165, 20);
@@ -296,15 +258,6 @@
 			this.button1.UseVisualStyleBackColor = true;
 			this.button1.Click += new System.EventHandler(this.btnCancel_Click);
 			// 
-			// label3
-			// 
-			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(5, 42);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(93, 13);
-			this.label3.TabIndex = 11;
-			this.label3.Text = "Current Password:";
-			// 
 			// btnChangePassword
 			// 
 			this.btnChangePassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -319,7 +272,7 @@
 			// label4
 			// 
 			this.label4.AutoSize = true;
-			this.label4.Location = new System.Drawing.Point(17, 70);
+			this.label4.Location = new System.Drawing.Point(17, 20);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(81, 13);
 			this.label4.TabIndex = 12;
@@ -363,15 +316,11 @@
 		private System.Windows.Forms.TabPage tabChangePassword;
 		private System.Windows.Forms.TextBox txtConfirm;
 		private System.Windows.Forms.Label label5;
-		private System.Windows.Forms.TextBox txtCurrentPassword;
 		private System.Windows.Forms.TextBox txtNewPassword;
 		private System.Windows.Forms.Button button1;
-		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.Button btnChangePassword;
 		private System.Windows.Forms.Label label4;
 		private System.Windows.Forms.LinkLabel linkForgetPassword;
-		private System.Windows.Forms.TextBox txtUserName2;
-		private System.Windows.Forms.Label label6;
 		private System.Windows.Forms.Button btnRecover;
 		private System.Windows.Forms.Button btnBackup;
 		private System.Windows.Forms.ToolTip toolTip;

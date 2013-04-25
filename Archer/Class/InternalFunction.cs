@@ -98,7 +98,7 @@ namespace Archer
 			password = ys.Common.Md5Hash(sr.ReadLine());
 			sr.Close();
 
-			ServerContactor sc = new ServerContactor() { AutoPromptPassword = false };
+			ServerContactor sc = new ServerContactor();
 			sc.Show();
 			sc.BackupUserData(userName, password);
 
@@ -115,7 +115,7 @@ namespace Archer
 			password = ys.Common.Md5Hash(sr.ReadLine());
 			sr.Close();
 
-			ServerContactor sc = new ServerContactor() { AutoPromptPassword = false };
+			ServerContactor sc = new ServerContactor();
 			sc.Show();
 			sc.RecoverUserData("Type=Recovery", userName, password);
 

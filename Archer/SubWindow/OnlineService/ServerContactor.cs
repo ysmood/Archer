@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Web;
 using System.IO;
+using System.Net;
 
 namespace Archer
 {
@@ -27,7 +28,7 @@ namespace Archer
 			this.autoCloseTime = autoCloseTime;
 		}
 
-		public bool AutoPromptPassword = true;
+		public bool Logged_in = false;
 
 		public void ShareArrow(Arrow arrow)
 		{
@@ -89,7 +90,8 @@ namespace Archer
 				{
 					try
 					{
-						e.Result = ys.Common.HttpPost(Resource.ArcherOnlineService, postData);
+						postData = "csrf_tk=" + GetSession() + "&" + postData;
+						e.Result = ys.Common.HttpPost(Resource.ArcherOnlineService, postData, Main.Setting.Cookie);
 						bgw.Dispose();
 					}
 					catch (Exception ex)
@@ -167,7 +169,8 @@ namespace Archer
 			{
 				try
 				{
-					e.Result = ys.Common.HttpPost(Resource.ArcherOnlineService, postData);
+					postData = "csrf_tk=" + GetSession() + "&" + postData;
+					e.Result = ys.Common.HttpPost(Resource.ArcherOnlineService, postData, Main.Setting.Cookie);
 					bgw.Dispose();
 				}
 				catch (Exception ex)
@@ -329,26 +332,6 @@ namespace Archer
 			}
 		}
 
-		private void ServerContactor_Load(object sender, EventArgs e)
-		{
-			// Authentication.
-			if (AutoPromptPassword && string.IsNullOrEmpty(Main.Setting.Password))
-			{
-				AccountManager accountWindow = new AccountManager();
-				// Must be a model window. We need to block this thread.
-				accountWindow.TryAgainWindow = true;
-				accountWindow.ShowDialog(this);
-				if (!accountWindow.OK)
-				{
-					Report(Resource.Canceled);
-					canceled = true;
-					AutoCloseWindow();
-					return;
-				}
-			}
-		}
-
-
 		private void Report(string state)
 		{
 			txtState.Text += "\r\n\r\n>> " + state;
@@ -381,6 +364,18 @@ namespace Archer
 			};
 			tmr.Start();
 		}
+		private string GetSession()
+		{
+			if (string.IsNullOrEmpty(Main.Setting.Cookie))
+			{
+				HttpWebRequest hr = (HttpWebRequest)WebRequest.Create(Resource.ArcherOnlineService);
+				hr.CookieContainer = new CookieContainer();
+				HttpWebResponse re = (HttpWebResponse)hr.GetResponse();
+				Main.Setting.CSRF = re.Cookies["ys_csrf"].Value;
+				Main.Setting.Cookie = "ys_csrf=" + re.Cookies["ys_csrf"].Value;
+			}
+			return Main.Setting.CSRF;
+		}
 		private void SendString(string url, string data, bool allowRetry = true)
 		{
 			BackgroundWorker bgw = new BackgroundWorker();
@@ -391,7 +386,8 @@ namespace Archer
 			{
 				try
 				{
-					e.Result = ys.Common.HttpPost(url, postData);
+					postData = "csrf_tk=" + GetSession() + "&" + postData;
+					e.Result = ys.Common.HttpPost(url, postData, Main.Setting.Cookie);
 					bgw.Dispose();
 				}
 				catch (Exception ex)

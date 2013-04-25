@@ -57,7 +57,6 @@
 			this.KeyPreview = true;
 			this.Name = "ServerContactor";
 			this.Text = "Server Contactor";
-			this.Load += new System.EventHandler(this.ServerContactor_Load);
 			this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.This_KeyDown);
 			this.ResumeLayout(false);
 			this.PerformLayout();

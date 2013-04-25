@@ -171,7 +171,7 @@
 			this.groupBoxInfo.TabIndex = 2;
 			this.groupBoxInfo.TabStop = false;
 			this.toolTip.SetToolTip(this.groupBoxInfo, "Press F2 to edit current arrow\r\nCtrl + M to open context menu\r\nDrag item(s) to cr" +
-					"eate new arrow(s)");
+        "eate new arrow(s)");
 			this.groupBoxInfo.DragEnter += new System.Windows.Forms.DragEventHandler(this.Archer_DragEnter);
 			// 
 			// ctmNotifyIcon
@@ -195,14 +195,14 @@
             this.exitToolStripMenuItem});
 			this.ctmNotifyIcon.Name = "ctmNotifyIcon";
 			this.ctmNotifyIcon.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-			this.ctmNotifyIcon.Size = new System.Drawing.Size(191, 286);
+			this.ctmNotifyIcon.Size = new System.Drawing.Size(165, 308);
 			// 
 			// showHideToolStripMenuItem
 			// 
 			this.showHideToolStripMenuItem.Image = global::Archer.Properties.Resources._Icon_Archer_16_;
 			this.showHideToolStripMenuItem.Name = "showHideToolStripMenuItem";
 			this.showHideToolStripMenuItem.ShortcutKeyDisplayString = "Win+A";
-			this.showHideToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+			this.showHideToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
 			this.showHideToolStripMenuItem.Text = "Archer";
 			this.showHideToolStripMenuItem.Click += new System.EventHandler(this.ShowHideWindow);
 			// 
@@ -210,20 +210,20 @@
 			// 
 			this.gestureMenuItem.Name = "gestureMenuItem";
 			this.gestureMenuItem.ShortcutKeyDisplayString = "Win+Shift+A";
-			this.gestureMenuItem.Size = new System.Drawing.Size(190, 22);
+			this.gestureMenuItem.Size = new System.Drawing.Size(164, 22);
 			this.gestureMenuItem.Text = "Gesture";
 			this.gestureMenuItem.Click += new System.EventHandler(this.disableGestureMenuItem_Click);
 			// 
 			// toolStripSeparator1
 			// 
 			this.toolStripSeparator1.Name = "toolStripSeparator1";
-			this.toolStripSeparator1.Size = new System.Drawing.Size(187, 6);
+			this.toolStripSeparator1.Size = new System.Drawing.Size(161, 6);
 			// 
 			// editArrowMenuItem
 			// 
 			this.editArrowMenuItem.Name = "editArrowMenuItem";
 			this.editArrowMenuItem.ShortcutKeyDisplayString = "F2";
-			this.editArrowMenuItem.Size = new System.Drawing.Size(190, 22);
+			this.editArrowMenuItem.Size = new System.Drawing.Size(164, 22);
 			this.editArrowMenuItem.Text = "Edit Arrow";
 			this.editArrowMenuItem.Click += new System.EventHandler(this.ShowEditor);
 			// 
@@ -231,7 +231,7 @@
 			// 
 			this.newArrowMenuItem.Name = "newArrowMenuItem";
 			this.newArrowMenuItem.ShortcutKeyDisplayString = "Ctrl+N";
-			this.newArrowMenuItem.Size = new System.Drawing.Size(190, 22);
+			this.newArrowMenuItem.Size = new System.Drawing.Size(164, 22);
 			this.newArrowMenuItem.Text = "New Arrow";
 			this.newArrowMenuItem.Click += new System.EventHandler(this.newNewArrow);
 			// 
@@ -240,14 +240,14 @@
 			this.delCurrentMenuItem.Image = global::Archer.Properties.Resources.Cancel;
 			this.delCurrentMenuItem.Name = "delCurrentMenuItem";
 			this.delCurrentMenuItem.ShortcutKeyDisplayString = "Ctrl+D";
-			this.delCurrentMenuItem.Size = new System.Drawing.Size(190, 22);
+			this.delCurrentMenuItem.Size = new System.Drawing.Size(164, 22);
 			this.delCurrentMenuItem.Text = "Delete Arrow";
 			this.delCurrentMenuItem.Click += new System.EventHandler(this.DeleteArrow);
 			// 
 			// toolStripSeparator2
 			// 
 			this.toolStripSeparator2.Name = "toolStripSeparator2";
-			this.toolStripSeparator2.Size = new System.Drawing.Size(187, 6);
+			this.toolStripSeparator2.Size = new System.Drawing.Size(161, 6);
 			// 
 			// onlineServiceMenuItem
 			// 
@@ -260,47 +260,47 @@
             this.backupMenuItem,
             this.recoverMenuItem});
 			this.onlineServiceMenuItem.Name = "onlineServiceMenuItem";
-			this.onlineServiceMenuItem.Size = new System.Drawing.Size(190, 22);
+			this.onlineServiceMenuItem.Size = new System.Drawing.Size(164, 22);
 			this.onlineServiceMenuItem.Text = "Online Service";
 			// 
 			// shareArrowMenuItem
 			// 
 			this.shareArrowMenuItem.Name = "shareArrowMenuItem";
 			this.shareArrowMenuItem.ShortcutKeyDisplayString = "Ctrl+R";
-			this.shareArrowMenuItem.Size = new System.Drawing.Size(190, 22);
+			this.shareArrowMenuItem.Size = new System.Drawing.Size(163, 22);
 			this.shareArrowMenuItem.Text = "Share Arrow";
 			this.shareArrowMenuItem.Click += new System.EventHandler(this.ShareArrow);
 			// 
 			// scriptStoreMenuItem
 			// 
 			this.scriptStoreMenuItem.Name = "scriptStoreMenuItem";
-			this.scriptStoreMenuItem.Size = new System.Drawing.Size(190, 22);
+			this.scriptStoreMenuItem.Size = new System.Drawing.Size(163, 22);
 			this.scriptStoreMenuItem.Text = "Script Store";
 			this.scriptStoreMenuItem.Click += new System.EventHandler(this.scriptStoreMenuItem_Click);
 			// 
 			// toolStripSeparator4
 			// 
 			this.toolStripSeparator4.Name = "toolStripSeparator4";
-			this.toolStripSeparator4.Size = new System.Drawing.Size(187, 6);
+			this.toolStripSeparator4.Size = new System.Drawing.Size(160, 6);
 			// 
 			// changeAccountMenuItem
 			// 
 			this.changeAccountMenuItem.Name = "changeAccountMenuItem";
 			this.changeAccountMenuItem.ShortcutKeyDisplayString = "Win+Ctrl+A";
-			this.changeAccountMenuItem.Size = new System.Drawing.Size(190, 22);
+			this.changeAccountMenuItem.Size = new System.Drawing.Size(163, 22);
 			this.changeAccountMenuItem.Text = "Account";
 			this.changeAccountMenuItem.Click += new System.EventHandler(this.Account);
 			// 
 			// toolStripSeparator5
 			// 
 			this.toolStripSeparator5.Name = "toolStripSeparator5";
-			this.toolStripSeparator5.Size = new System.Drawing.Size(187, 6);
+			this.toolStripSeparator5.Size = new System.Drawing.Size(160, 6);
 			// 
 			// backupMenuItem
 			// 
 			this.backupMenuItem.Image = global::Archer.Properties.Resources.Backup;
 			this.backupMenuItem.Name = "backupMenuItem";
-			this.backupMenuItem.Size = new System.Drawing.Size(190, 22);
+			this.backupMenuItem.Size = new System.Drawing.Size(163, 22);
 			this.backupMenuItem.Text = "Backup User Data";
 			this.backupMenuItem.Click += new System.EventHandler(this.Backup);
 			// 
@@ -308,7 +308,7 @@
 			// 
 			this.recoverMenuItem.Image = global::Archer.Properties.Resources.Recovery;
 			this.recoverMenuItem.Name = "recoverMenuItem";
-			this.recoverMenuItem.Size = new System.Drawing.Size(190, 22);
+			this.recoverMenuItem.Size = new System.Drawing.Size(163, 22);
 			this.recoverMenuItem.Text = "Recover User Data";
 			this.recoverMenuItem.Click += new System.EventHandler(this.Recover);
 			// 
@@ -317,7 +317,7 @@
 			this.settingsToolStripMenuItem.Image = global::Archer.Properties.Resources.Settings;
 			this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
 			this.settingsToolStripMenuItem.ShortcutKeyDisplayString = "Ctrl+S";
-			this.settingsToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+			this.settingsToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
 			this.settingsToolStripMenuItem.Text = "Settings";
 			this.settingsToolStripMenuItem.Click += new System.EventHandler(this.OpenSettings);
 			// 
@@ -325,20 +325,20 @@
 			// 
 			this.runOnStartToolStripMenuItem.Name = "runOnStartToolStripMenuItem";
 			this.runOnStartToolStripMenuItem.ShortcutKeyDisplayString = "";
-			this.runOnStartToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+			this.runOnStartToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
 			this.runOnStartToolStripMenuItem.Text = "Run on Startup";
 			this.runOnStartToolStripMenuItem.Click += new System.EventHandler(this.SetRunOnStart);
 			// 
 			// toolStripSeparator3
 			// 
 			this.toolStripSeparator3.Name = "toolStripSeparator3";
-			this.toolStripSeparator3.Size = new System.Drawing.Size(187, 6);
+			this.toolStripSeparator3.Size = new System.Drawing.Size(161, 6);
 			// 
 			// checkUpdateMenuItem
 			// 
 			this.checkUpdateMenuItem.Name = "checkUpdateMenuItem";
 			this.checkUpdateMenuItem.ShortcutKeyDisplayString = "";
-			this.checkUpdateMenuItem.Size = new System.Drawing.Size(190, 22);
+			this.checkUpdateMenuItem.Size = new System.Drawing.Size(164, 22);
 			this.checkUpdateMenuItem.Text = "Update";
 			this.checkUpdateMenuItem.Click += new System.EventHandler(this.StartCheckAndUpdate);
 			// 
@@ -347,7 +347,7 @@
 			this.helpMenuItem.Image = global::Archer.Properties.Resources.Help;
 			this.helpMenuItem.Name = "helpMenuItem";
 			this.helpMenuItem.ShortcutKeyDisplayString = "F1";
-			this.helpMenuItem.Size = new System.Drawing.Size(190, 22);
+			this.helpMenuItem.Size = new System.Drawing.Size(164, 22);
 			this.helpMenuItem.Text = "Help";
 			this.helpMenuItem.Click += new System.EventHandler(this.OpenDocumentation);
 			// 
@@ -356,7 +356,7 @@
 			this.aboutBoxMenuItem.Image = global::Archer.Properties.Resources.notifyIcon1;
 			this.aboutBoxMenuItem.Name = "aboutBoxMenuItem";
 			this.aboutBoxMenuItem.ShortcutKeyDisplayString = "";
-			this.aboutBoxMenuItem.Size = new System.Drawing.Size(190, 22);
+			this.aboutBoxMenuItem.Size = new System.Drawing.Size(164, 22);
 			this.aboutBoxMenuItem.Text = "About";
 			this.aboutBoxMenuItem.Click += new System.EventHandler(this.ShowAboutBox);
 			// 
@@ -364,14 +364,14 @@
 			// 
 			this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
 			this.exitToolStripMenuItem.ShortcutKeyDisplayString = "Ctrl+Q";
-			this.exitToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+			this.exitToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
 			this.exitToolStripMenuItem.Text = "E&xit";
 			this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
 			// 
 			// txtName
 			// 
-			this.txtName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-						| System.Windows.Forms.AnchorStyles.Right)));
+			this.txtName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.txtName.ImeMode = System.Windows.Forms.ImeMode.Disable;
 			this.txtName.Location = new System.Drawing.Point(70, 12);
 			this.txtName.Name = "txtName";
@@ -458,7 +458,7 @@
 			this.lbCmd.Text = "Null";
 			this.lbCmd.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.toolTip.SetToolTip(this.lbCmd, "Press F3 or click to copy Cmd into the clipboard.\r\nIf Ctrl pressed, Archer will t" +
-					"ry to copy the path of parent folder.");
+        "ry to copy the path of parent folder.");
 			this.lbCmd.UseMnemonic = false;
 			this.lbCmd.Click += new System.EventHandler(this.lbCmd_Click);
 			// 
@@ -474,7 +474,7 @@
 			this.lbName.Text = "Null";
 			this.lbName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.toolTip.SetToolTip(this.lbName, "Press F6 or click to rename current arrow\r\nPress F5 to reload all the data and re" +
-					"fresh the UI");
+        "fresh the UI");
 			this.lbName.UseMnemonic = false;
 			this.lbName.Click += new System.EventHandler(this.lbName_Click);
 			// 
@@ -501,8 +501,8 @@
 			// cbName
 			// 
 			this.cbName.AllowDrop = true;
-			this.cbName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-						| System.Windows.Forms.AnchorStyles.Right)));
+			this.cbName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.cbName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
 			this.cbName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
 			this.cbName.BackColor = System.Drawing.Color.White;
@@ -519,8 +519,8 @@
 			// cbArg
 			// 
 			this.cbArg.AllowDrop = true;
-			this.cbArg.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-						| System.Windows.Forms.AnchorStyles.Right)));
+			this.cbArg.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.cbArg.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
 			this.cbArg.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.AllSystemSources;
 			this.cbArg.BackColor = System.Drawing.Color.White;
@@ -530,7 +530,7 @@
 			this.cbArg.Size = new System.Drawing.Size(296, 21);
 			this.cbArg.TabIndex = 0;
 			this.toolTip.SetToolTip(this.cbArg, "Input arguments here.\r\nPress Ctrl+Enter, launch arrow with auto url encode Arg of" +
-					"f.\r\nDrag item(s) here to get path(s).");
+        "f.\r\nDrag item(s) here to get path(s).");
 			this.cbArg.TextChanged += new System.EventHandler(this.cbArg_TextChanged);
 			this.cbArg.DragDrop += new System.Windows.Forms.DragEventHandler(this.cbArg_DragDrop);
 			this.cbArg.DragEnter += new System.Windows.Forms.DragEventHandler(this.cbArg_DragEnter);

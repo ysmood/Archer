@@ -65,7 +65,7 @@ namespace Archer.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap _Icon_Archer_16_ {
             get {
-                object obj = ResourceManager.GetObject("[Icon]Archer[16]", resourceCulture);
+                object obj = ResourceManager.GetObject("_Icon_Archer_16_", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

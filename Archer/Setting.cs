@@ -31,7 +31,9 @@ namespace Archer
 			}
 		}
 		public string UserName { get; set; }
-		public string Password = string.Empty;
+		public string Password { get; set; }
+		public string Cookie { get; set; }
+		public string CSRF { get; set; }
 
 		public void OpenFileWithEidtor(string filePath)
 		{

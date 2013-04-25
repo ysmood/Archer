@@ -403,7 +403,7 @@ namespace ys
 			return sBuilder.ToString();
 		}
 
-		public static string HttpPost(string url, string postData = "")
+		public static string HttpPost(string url, string postData, string cookie)
 		{
 			byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(postData);
 
@@ -411,6 +411,7 @@ namespace ys
 			request.Method = "POST";
 			request.ContentType = "application/x-www-form-urlencoded";
 			request.ContentLength = byteArray.Length;
+			request.Headers.Add("Cookie", cookie);
 
 			Stream dataStream = request.GetRequestStream();
 			dataStream.Write(byteArray, 0, byteArray.Length);
