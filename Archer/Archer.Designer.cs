@@ -22,7 +22,7 @@
 			this.tbpMain = new System.Windows.Forms.TableLayoutPanel();
 			this.panelButton = new System.Windows.Forms.Panel();
 			this.btnHelp = new System.Windows.Forms.Button();
-			this.btnHome = new System.Windows.Forms.Button();
+			this.btnStore = new System.Windows.Forms.Button();
 			this.btnOK = new System.Windows.Forms.Button();
 			this.btnSettings = new System.Windows.Forms.Button();
 			this.groupBoxInfo = new System.Windows.Forms.GroupBox();
@@ -93,7 +93,7 @@
 			// panelButton
 			// 
 			this.panelButton.Controls.Add(this.btnHelp);
-			this.panelButton.Controls.Add(this.btnHome);
+			this.panelButton.Controls.Add(this.btnStore);
 			this.panelButton.Controls.Add(this.btnOK);
 			this.panelButton.Controls.Add(this.btnSettings);
 			this.panelButton.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -114,18 +114,18 @@
 			this.btnHelp.UseVisualStyleBackColor = true;
 			this.btnHelp.Click += new System.EventHandler(this.OpenDocumentation);
 			// 
-			// btnHome
+			// btnStore
 			// 
-			this.btnHome.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.btnHome.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.btnHome.Image = global::Archer.Properties.Resources.Home;
-			this.btnHome.Location = new System.Drawing.Point(3, 75);
-			this.btnHome.Name = "btnHome";
-			this.btnHome.Size = new System.Drawing.Size(46, 30);
-			this.btnHome.TabIndex = 1;
-			this.toolTip.SetToolTip(this.btnHome, "Ctrl + F1");
-			this.btnHome.UseVisualStyleBackColor = true;
-			this.btnHome.Click += new System.EventHandler(this.OpenArcherHome);
+			this.btnStore.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.btnStore.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			this.btnStore.Image = global::Archer.Properties.Resources.ScriptStore;
+			this.btnStore.Location = new System.Drawing.Point(3, 75);
+			this.btnStore.Name = "btnStore";
+			this.btnStore.Size = new System.Drawing.Size(46, 30);
+			this.btnStore.TabIndex = 1;
+			this.toolTip.SetToolTip(this.btnStore, "Ctrl + F1");
+			this.btnStore.UseVisualStyleBackColor = true;
+			this.btnStore.Click += new System.EventHandler(this.OpenArcherStore);
 			// 
 			// btnOK
 			// 
@@ -195,7 +195,7 @@
             this.exitToolStripMenuItem});
 			this.ctmNotifyIcon.Name = "ctmNotifyIcon";
 			this.ctmNotifyIcon.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-			this.ctmNotifyIcon.Size = new System.Drawing.Size(165, 308);
+			this.ctmNotifyIcon.Size = new System.Drawing.Size(165, 286);
 			// 
 			// showHideToolStripMenuItem
 			// 
@@ -591,7 +591,7 @@
 		private System.Windows.Forms.Button btnHelp;
 		private System.Windows.Forms.Button btnOK;
 		private System.Windows.Forms.Button btnSettings;
-		private System.Windows.Forms.Button btnHome;
+		private System.Windows.Forms.Button btnStore;
 		private System.Windows.Forms.Label lbCount;
 		private System.Windows.Forms.Label lbHotKey;
 		private System.Windows.Forms.Label lbTag;

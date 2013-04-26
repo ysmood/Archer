@@ -60,7 +60,6 @@ namespace Archer
 		public static string ArcherOnlineService = "http://ysmood.org/archer/service";
 		public static string ArcherRegister = "http://ysmood.org/archer/register";
 		public static string ArcherResetPassword = "http://ysmood.org/archer/register/reset";
-		public static string ArcherFileUpload = "http://ysmood.org/archer/upload";
 		public static string ArcherTemp = Environment.GetEnvironmentVariable("TEMP") + "\\" + "Archer-";
 
 

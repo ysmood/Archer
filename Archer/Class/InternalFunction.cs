@@ -192,21 +192,6 @@ namespace Archer
 			return null;
 		}
 
-		public static object Upload()
-		{
-
-			StringReader sr = new StringReader(cmd_additional);
-			string locaFilePath = ys.Common.GetFileFullPath(sr.ReadLine().Trim('"'));
-			sr.Close();
-
-			ServerContactor sc = new ServerContactor();
-			sc.Show();
-
-			sc.SendFile(Archer.Resource.ArcherFileUpload, locaFilePath, Main.Self.CurrentArrow);
-
-			return null;
-		}
-
 		/************ Private Part ****************/
 
 		private static string cmd_additional = "";

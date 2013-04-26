@@ -994,7 +994,7 @@ namespace Archer
 				
 				case Keys.F1:
 					if (e.Control)
-						OpenArcherHome(null, null);
+						OpenArcherStore(null, null);
 					else
 						OpenDocumentation(null, null);
 					break;
@@ -1542,9 +1542,9 @@ namespace Archer
 		{
 			this.Close();
 		}
-		private void OpenArcherHome(object sender, EventArgs e)
+		private void OpenArcherStore(object sender, EventArgs e)
 		{
-			ys.Common.Start(Resource.ArcherHome);
+			ys.Common.Start(Resource.ArcherSctiptStore);
 		}
 		private void ShowHideWindow(object o, EventArgs e)
 		{
