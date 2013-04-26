@@ -1544,7 +1544,12 @@ namespace Archer
 		}
 		private void OpenArcherStore(object sender, EventArgs e)
 		{
-			ys.Common.Start(Resource.ArcherSctiptStore);
+			Browser browser = new Browser();
+			StringReader sr = new StringReader(Resource.ArcherSctiptStore);
+			browser.Argument = sr.ReadLine();
+			browser.AdditionalScript = sr.ReadToEnd();
+			sr.Close();
+			browser.Show();
 		}
 		private void ShowHideWindow(object o, EventArgs e)
 		{

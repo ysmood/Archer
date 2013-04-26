@@ -91,7 +91,7 @@ namespace Archer
 					try
 					{
 						postData = "csrf_tk=" + GetSession() + "&" + postData;
-						e.Result = ys.Common.HttpPost(Resource.ArcherOnlineService, postData, Main.Setting.Cookie);
+						e.Result = ys.Common.HttpPost(Resource.ArcherOnlineService, postData, csrf_cookie);
 						bgw.Dispose();
 					}
 					catch (Exception ex)
@@ -170,7 +170,7 @@ namespace Archer
 				try
 				{
 					postData = "csrf_tk=" + GetSession() + "&" + postData;
-					e.Result = ys.Common.HttpPost(Resource.ArcherOnlineService, postData, Main.Setting.Cookie);
+					e.Result = ys.Common.HttpPost(Resource.ArcherOnlineService, postData, csrf_cookie);
 					bgw.Dispose();
 				}
 				catch (Exception ex)
@@ -317,6 +317,8 @@ namespace Archer
 		private bool autoClose;
 		private int autoCloseTime;
 		private bool canceled = false;
+		private string csrf_cookie;
+		private string csrf_token;
 
 		private string GetAuthInfo(string userName = "", string password = "")
 		{
@@ -366,15 +368,12 @@ namespace Archer
 		}
 		private string GetSession()
 		{
-			if (string.IsNullOrEmpty(Main.Setting.Cookie))
-			{
-				HttpWebRequest hr = (HttpWebRequest)WebRequest.Create(Resource.ArcherOnlineService);
-				hr.CookieContainer = new CookieContainer();
-				HttpWebResponse re = (HttpWebResponse)hr.GetResponse();
-				Main.Setting.CSRF = re.Cookies["ys_csrf"].Value;
-				Main.Setting.Cookie = "ys_csrf=" + re.Cookies["ys_csrf"].Value;
-			}
-			return Main.Setting.CSRF;
+			HttpWebRequest hr = (HttpWebRequest)WebRequest.Create(Resource.ArcherOnlineService);
+			hr.CookieContainer = new CookieContainer();
+			HttpWebResponse re = (HttpWebResponse)hr.GetResponse();
+			csrf_token = re.Cookies["ys_csrf"].Value;
+			csrf_cookie = "ys_csrf=" + re.Cookies["ys_csrf"].Value;
+			return csrf_token;
 		}
 		private void SendString(string url, string data, bool allowRetry = true)
 		{
@@ -387,7 +386,7 @@ namespace Archer
 				try
 				{
 					postData = "csrf_tk=" + GetSession() + "&" + postData;
-					e.Result = ys.Common.HttpPost(url, postData, Main.Setting.Cookie);
+					e.Result = ys.Common.HttpPost(url, postData, csrf_cookie);
 					bgw.Dispose();
 				}
 				catch (Exception ex)
