@@ -90,8 +90,7 @@ namespace Archer
 				{
 					try
 					{
-						postData = "csrf_tk=" + GetSession() + "&" + postData;
-						e.Result = ys.Common.HttpPost(Resource.ArcherOnlineService, postData, csrf_cookie);
+						e.Result = ys.Common.HttpPost(Resource.ArcherOnlineService, postData);
 						bgw.Dispose();
 					}
 					catch (Exception ex)
@@ -169,8 +168,7 @@ namespace Archer
 			{
 				try
 				{
-					postData = "csrf_tk=" + GetSession() + "&" + postData;
-					e.Result = ys.Common.HttpPost(Resource.ArcherOnlineService, postData, csrf_cookie);
+					e.Result = ys.Common.HttpPost(Resource.ArcherOnlineService, postData);
 					bgw.Dispose();
 				}
 				catch (Exception ex)
@@ -317,8 +315,6 @@ namespace Archer
 		private bool autoClose;
 		private int autoCloseTime;
 		private bool canceled = false;
-		private string csrf_cookie;
-		private string csrf_token;
 
 		private string GetAuthInfo(string userName = "", string password = "")
 		{
@@ -366,15 +362,6 @@ namespace Archer
 			};
 			tmr.Start();
 		}
-		private string GetSession()
-		{
-			HttpWebRequest hr = (HttpWebRequest)WebRequest.Create(Resource.ArcherOnlineService);
-			hr.CookieContainer = new CookieContainer();
-			HttpWebResponse re = (HttpWebResponse)hr.GetResponse();
-			csrf_token = re.Cookies["ys_csrf"].Value;
-			csrf_cookie = "ys_csrf=" + re.Cookies["ys_csrf"].Value;
-			return csrf_token;
-		}
 		private void SendString(string url, string data, bool allowRetry = true)
 		{
 			BackgroundWorker bgw = new BackgroundWorker();
@@ -385,8 +372,7 @@ namespace Archer
 			{
 				try
 				{
-					postData = "csrf_tk=" + GetSession() + "&" + postData;
-					e.Result = ys.Common.HttpPost(url, postData, csrf_cookie);
+					e.Result = ys.Common.HttpPost(url, postData);
 					bgw.Dispose();
 				}
 				catch (Exception ex)

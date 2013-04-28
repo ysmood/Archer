@@ -403,7 +403,7 @@ namespace ys
 			return sBuilder.ToString();
 		}
 
-		public static string HttpPost(string url, string postData, string cookie)
+		public static string HttpPost(string url, string postData, string cookie = "")
 		{
 			byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(postData);
 

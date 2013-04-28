@@ -61,11 +61,6 @@
 		<param name="Local" value="contents\2-Tutorial.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Update Log">
-		<param name="Name" value="Update Log">
-		<param name="Local" value="contents\6-Update_Log.html">
-		</OBJECT>
-	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Window">
 		<param name="Name" value="Window">
 		<param name="Local" value="contents\1-Window.html">
