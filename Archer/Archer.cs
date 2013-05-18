@@ -40,7 +40,7 @@ namespace Archer
 	{
 		/// ******** Pulic Part ********
 
-		// Try to cut down comment in the code and make the member name brief.
+		// Try to cut down comments in the code and make the member name brief.
 		// Make it easy to find out the outline of the project.
 
 		public Main()
@@ -1170,7 +1170,7 @@ namespace Archer
 					Arrows.Add(new Arrow()
 						{
 							Cmd = s,
-							Name = s = reg.Replace(new Uri(s).Host,"") + ".u",
+							Name = s = reg.Replace(new Uri(s).Host,"").ToLower() + ".u",
 						}
 					);
 					RefreshUI(false);
@@ -1189,8 +1189,8 @@ namespace Archer
 					{
 						Arrows.Add(new Arrow()
 							{
-								Name = n = Path.GetFileName(path).Replace(" ","_") + "." + ys.Common.AutoGetType(path),
 								Cmd = path,
+								Name = n = Path.GetFileName(path).Replace(" ", "_").ToLower() + "." + ys.Common.AutoGetType(path),
 							}
 						);
 					}
